@@ -1,2 +1,1 @@
-# skillBox_homeworks
-my homeworks on SkillBox
+Выполненные работы skillBox
