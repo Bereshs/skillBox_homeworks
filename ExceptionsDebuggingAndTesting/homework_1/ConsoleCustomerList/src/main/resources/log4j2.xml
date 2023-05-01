@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="MyApp">
+    <Appenders>
+        <RollingFile name="ErrorFile" fileName="logs/errors.log"
+                     filePattern="logs/errors-%d{MM-dd-yyyy}.log.gz">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout>
+                <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+        <RollingFile name="QueriesFile" fileName="logs/queries.log"
+                     filePattern="logs/errors-%d{MM-dd-yyyy}.log.gz">
+            <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <PatternLayout>
+                <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info" >
+            <AppenderRef ref="ErrorFile"/>
+            <AppenderRef ref="QueriesFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
